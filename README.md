@@ -2,6 +2,17 @@
 
 광주·전남 지역 누적 강수량을 기상청 ASOS 시간자료(HR) API로 조회하는 예제 템플릿입니다. 웹과 모바일 앱(Android/iOS)을 동시에 지원하며, HTTPS·프록시 분기, API 키 저장, 강수량 누적 계산 로직을 한눈에 확인할 수 있습니다.
 
+## 🙋 처음 쓰는 분들을 위한 쉬운 설명
+1. **파일 받기**: 이 페이지 오른쪽 위의 초록색 `Code` 버튼 → `Download ZIP`을 눌러 압축파일을 받습니다. (GitHub를 몰라도 됩니다.)
+2. **압축 풀기**: 받은 ZIP을 원하는 폴더에 압축 해제합니다. 폴더 이름은 `kma_rainfall`이어도 괜찮습니다.
+3. **편집기 열기**: VS Code, Android Studio, IntelliJ 등 익숙한 에디터에서 해당 폴더를 엽니다.
+4. **API 키 저장**: Flutter 앱 안에서 `SharedPreferences`에 `kma_api_key`라는 이름으로 기상청 서비스키를 한 번 저장해 둡니다. (별도 UI가 없다면 `SharedPreferences.setString('kma_api_key', '서비스키')` 코드를 임시로 실행하세요.)
+5. **프록시 주소 지정**: 웹에서 쓸 리버스 프록시 도메인을 가지고 있다면 `lib/services/kma_api_service.dart` 상단의 `proxyHost` 값을 `api.your-domain.kr`처럼 실제 주소로 바꿉니다. 없다면 기본값을 두고 모바일 앱에서만 먼저 테스트해도 됩니다.
+6. **실행하기**: 터미널을 열어 `flutter pub get` → `flutter run -d chrome`(웹) 또는 `flutter run`(앱)을 실행하면 예제 코드에서 누적 강수량을 불러올 수 있습니다.
+7. **URL이 왜 없나요?**: 이 템플릿은 소스코드만 제공하므로, 직접 Flutter 웹을 빌드(`flutter build web`)해서 원하는 서버나 호스팅 서비스에 올려야만 접속 가능한 URL이 생깁니다. README의 Nginx 예시는 그런 배포 환경을 만드는 방법을 보여주는 예시입니다.
+
+> 한 줄 요약: ZIP으로 받아 Flutter 프로젝트로 열고, API 키/프록시만 채워서 직접 실행·배포하면 됩니다. 따로 제공되는 “확인용 URL”은 없습니다.
+
 ## 📦 폴더 구조
 ```
 kma_rainfall_template/
